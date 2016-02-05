@@ -1,0 +1,7 @@
+package ReportGeneration;
+
+public class FinalReport {
+	private PatientReportContent reportContent;
+	
+	
+}

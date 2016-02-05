@@ -1,0 +1,19 @@
+package ReportGeneration;
+
+import simplenlg.framework.*;
+import simplenlg.lexicon.*;
+import simplenlg.realiser.english.*;
+import simplenlg.phrasespec.*;
+import simplenlg.features.*;
+
+public class FinalReport {
+	private PatientReportContent reportContent;
+	
+	public String getPatientReport(PatientReportContent patientContent){
+		String report = "";
+			
+		
+		
+		return report;
+	}
+}

@@ -1,0 +1,8 @@
+package ReportGeneration;
+
+import bean.*;
+
+public class PatientReportContent {
+	Lab[] relevantLabData;
+	Patient patient;
+}
