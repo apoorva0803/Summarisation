@@ -1,0 +1,12 @@
+CREATE TABLE PatientCorePopulatedTable (PatientID BIGINT, PatientGender VARCHAR(255), PatientDateOfBirth DATE, PatientRace VARCHAR(255),
+ PatientMaritalStatus VARCHAR(255), PatientLanguage VARCHAR(255), PatientPopulationPercentageBelowPoverty VARCHAR(255) );
+ 
+CREATE TABLE AdmissionCorePopulatedTable(PatientID BIGINT, AdmissionID BIGINT, AdmissionStartDate DATE, AdmissionEndDate DATE);
+ 
+CREATE TABLE LabCorePopulatedTable(PatientID BIGINT, AdmissionID BIGINT, LabName VARCHAR(255), LabValue DECIMAL(5,2), LabUnits VARCHAR(255),
+LabDateTime DATE );
+
+CREATE TABLE AdmissionDiagnosisCorePopulatedTable(PatientID BIGINT, AdmissionID BIGINT, PrimaryDiagnosisCode VARCHAR(255), 
+PrimaryDiagnosisDescription VARCHAR(255));
+
+ 

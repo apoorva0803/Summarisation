@@ -1,0 +1,5 @@
+INDEX VERSION 1.127+E:\NLP\NLP WS\.metadata\.plugins\org.eclipse.jdt.core
+304483630.index
+3042538668.index
+1626811714.index
+3921216983.index

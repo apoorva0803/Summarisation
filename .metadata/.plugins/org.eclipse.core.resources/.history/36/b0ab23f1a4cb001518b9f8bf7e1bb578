@@ -1,0 +1,57 @@
+package DAOFactory;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import org.h2.tools.Server;
+
+public class H2DAOFactory {
+
+	Connection conn = null; 
+	public static final String DRIVER = "org.h2.Driver";
+
+	String path = H2DAOFactory.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+
+
+	//public static final String DBURL = "jdbc:h2:tcp://localhost//C://Users//apojain//Desktop//Latest PDA//PDA;AUTO_SERVER=TRUE,IF_EXISTS=TRUE";
+
+	//public static final String DBURL = "jdbc:h2:~/PDA;AUTO_SERVER=TRUE,IF_EXISTS=TRUE";
+
+	public static final String DBURL = "jdbc:h2:tcp://localhost/~/PDA;AUTO_SERVER=TRUE";
+	// public static final String DBURL = "jdbc:h2:file:db/pda.mv.db"; //from project
+	//"jdbc:h2:tcp://PDA";"jdbc:h2:tcp://localhost/~/PDA";//"jdbc:h2:~/PDA";//
+
+	public static final String DBUSER = "mbrdi";
+	public static final String DBPASS = "mbrdi";
+
+
+	// method to create H2 connections
+
+	static Server server = null;
+	public static Connection createH2Connection() throws SQLException, ClassNotFoundException
+	{	
+
+
+		//System.out.println(H2DAOFactory.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+		Connection conn=null;
+		
+		try {
+			server = Server.createTcpServer("-tcpAllowOthers").start();
+			Class.forName(DRIVER);		
+			conn = DriverManager.getConnection(DBURL,DBUSER,DBPASS);				
+		}
+
+		catch (ClassNotFoundException ce) 
+		{
+			throw ce;
+		}
+
+		catch (SQLException se) 
+		{
+			throw se;
+		}
+
+		return conn;
+	}
+}
