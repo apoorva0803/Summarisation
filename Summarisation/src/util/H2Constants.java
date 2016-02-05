@@ -1,0 +1,11 @@
+package util;
+
+public class H2Constants {
+
+	public static final String H2_SELECT_PATIENT = "SELECT * FROM PATIENTCOREPOPULATEDTABLE";
+	public static final String H2_SELECT_ADMISSION = "SELECT * FROM ADMISSIONSCOREPOPULATEDTABLE ";
+	public static final String H2_SELECT_LAB = "SELECT * FROM LABSCOREPOPULATEDTABLE  ";
+	public static final String H2_SELECT_DIAGNOSIS = "SELECT * FROM ADMISSIONSDIAGNOSESCOREPOPULATEDTABLE  ";
+
+	
+}
