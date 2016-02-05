@@ -9,12 +9,13 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import model.ConfigList;
+import util.H2Constants;
+import util.Util;
+import DAOFactory.H2DAOFactory;
 import bean.Admission;
 import bean.AdmissionDiagonsis;
 import bean.Lab;
 import bean.Patient;
-import util.H2Constants;
-import DAOFactory.H2DAOFactory;
 
 public class UserDao {
 
@@ -43,7 +44,7 @@ public class UserDao {
 	 */
 	public void createPatientInfo() throws ClassNotFoundException, SQLException{
 		logger.info("Starting of Patient Method");
-		
+
 		List<Patient> arrListPatient = new ArrayList<Patient>();
 		try
 		{
@@ -56,7 +57,7 @@ public class UserDao {
 				Patient patient = new Patient();
 				patient.setPatientId(resultSet.getString(1));
 				patient.setPatientGender(resultSet.getString(2));
-				patient.setPatientDateOfBirth(resultSet.getString(3));
+				patient.setPatientDateOfBirth(Util.getDateFromString(resultSet.getString(3)));
 				patient.setPatientRace(resultSet.getString(4));
 				patient.setPatientMaritalStatus(resultSet.getString(5));
 				patient.setPatientLanguage(resultSet.getString(6));
@@ -105,6 +106,8 @@ public class UserDao {
 		logger.info("Starting of Admission Method");
 
 		List<Admission> arrListAdmission = new ArrayList<Admission>();
+
+
 		try
 		{
 			con = H2DAOFactory.createH2Connection();
@@ -116,8 +119,8 @@ public class UserDao {
 				Admission admission = new Admission();
 				admission.setPatientId(resultSet.getString(1));
 				admission.setAdmissionId(resultSet.getInt(2));
-				//				admission.setAdmissionStartDate(resultSet.getDate(3));
-				//				admission.setAdmissionEndDate(resultSet.getDate(4));
+				admission.setAdmissionStartDate(Util.getDateFromString(resultSet.getString(3)));
+				admission.setAdmissionEndDate(Util.getDateFromString(resultSet.getString(4)));
 				arrListAdmission.add(admission);
 			}
 			ConfigList.getInstance().setAdmissionList(arrListAdmission);
@@ -177,7 +180,7 @@ public class UserDao {
 				lab.setLabName(resultSet.getString(3));
 				lab.setLabValue(resultSet.getString(4));
 				lab.setLabUnits(resultSet.getString(5));
-				//lab.setLabDate(resultSet.getString(6));
+				lab.setLabDate(Util.getDateFromString(resultSet.getString(6)));
 				arrListLab.add(lab);
 			}
 			con.commit();

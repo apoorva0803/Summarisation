@@ -1,11 +1,13 @@
 package bean;
 
+import java.util.Date;
+
 public class Lab extends AdmissionBase{
 
 	String labName;
 	String labUnits;
 	String labValue;
-	String labDate;
+	Date labDate;
 	
 	public String getLabName() {
 		return labName;
@@ -25,11 +27,11 @@ public class Lab extends AdmissionBase{
 	public void setLabValue(String labValue) {
 		this.labValue = labValue;
 	}
-	public String getLabDate() {
+	public Date getLabDate() {
 		return labDate;
 	}
-	public void setLabDate(String labDate) {
-		this.labDate = labDate;
+	public void setLabDate(Date date) {
+		this.labDate = date;
 	}
 	
 	
