@@ -2,4 +2,5 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="bean.Lab"/>
 <fullyQualifiedTypeName name="ReportGeneration.PatientReportContent"/>
+<fullyQualifiedTypeName name="ReportGeneration.FinalReport"/>
 </qualifiedTypeNameHistroy>
