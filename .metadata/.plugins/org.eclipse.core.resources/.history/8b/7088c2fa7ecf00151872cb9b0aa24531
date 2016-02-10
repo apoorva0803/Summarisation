@@ -1,0 +1,21 @@
+package model;
+
+import java.util.*;
+import bean.*;
+import model.*;
+
+public class DataManager {
+
+	public List<AdmissionDiagonsis> getPatientDiagnosis(Patient patient){
+		List<AdmissionDiagonsis> diagnosisList = ConfigList.getDiagnosisList();
+		
+		List<AdmissionDiagonsis> patientDiagnosis = new ArrayList<AdmissionDiagonsis>();
+		
+		for (AdmissionDiagonsis diagnosis :diagnosisList){
+			if (diagnosis.getPatientId() == patient.getPatientId())
+				patientDiagnosis.add(diagnosis);
+		}
+		
+		return patientDiagnosis;
+	}
+}

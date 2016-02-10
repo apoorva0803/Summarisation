@@ -3,4 +3,11 @@
 <fullyQualifiedTypeName name="bean.Lab"/>
 <fullyQualifiedTypeName name="ReportGeneration.PatientReportContent"/>
 <fullyQualifiedTypeName name="ReportGeneration.FinalReport"/>
+<fullyQualifiedTypeName name="bean.Admission"/>
+<fullyQualifiedTypeName name="model.ConfigList"/>
+<fullyQualifiedTypeName name="bean.Patient"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="bean.AdmissionDiagonsis"/>
+<fullyQualifiedTypeName name="model.DataManager"/>
 </qualifiedTypeNameHistroy>

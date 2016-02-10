@@ -1,14 +1,43 @@
 package ReportGeneration;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import DAO.UserDao;
+import bean.*;
+import model.*;
+import java.sql.SQLException;
+
+
 public class TestMainClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		PatientReportContent patient = new PatientReportContent();
-		patient.setDiagnosis(new String[]{"Stokholm syndrom",""});
+		//PatientReportContent patient = new PatientReportContent();
+		
+		UserDao ud = new UserDao();
+		try {
+			ud.preProcess();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		List<Patient> ps = ConfigList.getPatientList();
+		System.out.println(ps.size());
+		Patient p = ps.get(1);
+		List<AdmissionDiagonsis> diags = DataManager.getPatientDiagnosis(p);
+		
+		//patient.setDiagnosis(new String[]{"Stokholm syndrom",""});
 		
 		FinalReport reportGen = new FinalReport();
-		String report = reportGen.getPatientReport(patient);
+		
+		
+		
+		String report = reportGen.getPatientReport(p.getPatientId(), diags);
 		
 		System.out.println(report);
 	}

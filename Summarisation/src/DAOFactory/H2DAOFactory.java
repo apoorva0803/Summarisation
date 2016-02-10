@@ -13,7 +13,7 @@ public class H2DAOFactory {
 
 	String path = H2DAOFactory.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 
-	public static final String DBURL = "jdbc:h2:tcp://localhost/~/Summarisation;AUTO_SERVER=TRUE";
+	public static final String DBURL = "jdbc:h2:~/Summarisation;AUTO_SERVER=TRUE";
 	public static final String DBUSER = "nlp";
 	public static final String DBPASS = "nlp";
 
