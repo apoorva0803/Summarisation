@@ -20,4 +20,18 @@ public class Util {
 			return date;
 	            
 	}
+	
+	public static String ordinal(int c) {
+		int r100 = (c % 100);
+		int r10 = (c % 10);
+		if(r10 == 1 && r100 != 11) {
+		return c + "st";
+		} else if(r10 == 2 && r100 != 12) {
+		return c + "nd";
+		} else if(r10 == 3 && r100 != 13) {
+		return c + "rd";
+		} else {
+		return c + "th";
+		}
+	}
 }

@@ -15,10 +15,15 @@ public class DataManager {
 		List<AdmissionDiagonsis> diagnosisList = ConfigList.getDiagnosisList();
 		
 		List<AdmissionDiagonsis> patientDiagnosis = new ArrayList<AdmissionDiagonsis>();
+//		System.out.println("diag zise is: "+ diagnosisList.size());
+//		System.out.println(diagnosisList.get(1).getPatientId());
 		
 		for (AdmissionDiagonsis diagnosis :diagnosisList){
-			if (diagnosis.getPatientId() == patient.getPatientId())
+			
+			if (diagnosis.getPatientId().equals(patient.getPatientId()) ){
+//				System.out.println(diagnosis.getPrimaryDiagonsisDesc());
 				patientDiagnosis.add(diagnosis);
+			}
 		}
 		
 		return patientDiagnosis;

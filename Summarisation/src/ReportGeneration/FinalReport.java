@@ -11,10 +11,12 @@ import java.util.List;
 import bean.AdmissionDiagonsis;
 import simplenlg.features.*;
 
+import util.*;
+
 public class FinalReport {
 	//private PatientReportContent reportContent;
 	
-	public String getPatientReport(String patientId, List<AdmissionDiagonsis> diagnoses){
+	public String getPatientAdmissionSummary(String patientId, List<AdmissionDiagonsis> diagnoses){
 		String report = "";
 		
 		Lexicon lexicon = Lexicon.getDefaultLexicon();
@@ -25,16 +27,23 @@ public class FinalReport {
 		
 		List<NPPhraseSpec> objects = new ArrayList<NPPhraseSpec>();
 		CoordinatedPhraseElement obj = nlgFactory.createCoordinatedPhrase();
+
+		
+		int admissionCount = 1;
 		
 		for(AdmissionDiagonsis diagnosis : diagnoses){
-			NPPhraseSpec object = nlgFactory.createNounPhrase(diagnoses);
+			
+			NPPhraseSpec object = nlgFactory.createNounPhrase(diagnosis.getPrimaryDiagonsisDesc());
+			object.addModifier("on " + Util.ordinal(admissionCount) + " admission");
 			obj.addCoordinate(object);
+			
+			admissionCount++;
 		}
 		
 	     
 
 		
-		VPPhraseSpec verb = nlgFactory.createVerbPhrase("diagnose as");
+		VPPhraseSpec verb = nlgFactory.createVerbPhrase("diagnose with");
 	    
 	    p.setFeature(Feature.TENSE, Tense.PAST);
 	    p.setSubject("This patient");

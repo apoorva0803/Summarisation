@@ -14,7 +14,7 @@ public class TestMainClass {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//PatientReportContent patient = new PatientReportContent();
-		
+
 		UserDao ud = new UserDao();
 		try {
 			ud.preProcess();
@@ -25,19 +25,15 @@ public class TestMainClass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		List<Patient> ps = ConfigList.getPatientList();
-		System.out.println(ps.size());
-		Patient p = ps.get(1);
+
+		Patient p = ps.get(7);
+
 		List<AdmissionDiagonsis> diags = DataManager.getPatientDiagnosis(p);
-		
-		//patient.setDiagnosis(new String[]{"Stokholm syndrom",""});
 		
 		FinalReport reportGen = new FinalReport();
 		
-		
-		
-		String report = reportGen.getPatientReport(p.getPatientId(), diags);
+		String report = reportGen.getPatientAdmissionSummary(p.getPatientId(), diags);
 		
 		System.out.println(report);
 	}
